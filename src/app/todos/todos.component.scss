@@ -1,0 +1,15 @@
+.todos {
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &--completed {
+            text-decoration: line-through;
+            color: gray;
+            background-color: lightgreen; /* Light green background */
+            padding: 4px; /* Optional padding for better appearance */
+            border-radius: 4px; /* Optional for rounded corners */
+        }
+    }
+}

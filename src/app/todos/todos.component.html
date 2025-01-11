@@ -1,0 +1,35 @@
+<h3>
+    To-Do List!
+</h3>
+
+@if (!todoItems().length) {
+    <p>
+        Loading...
+    </p>
+}
+
+<form>
+    <label>
+        Filter To-Do
+    </label>
+    <input 
+        name="searchTerm" 
+        [(ngModel)]="searchTerm" 
+        placeholder="Search To-Dos" />
+</form>
+
+<ul class="todos">
+    <li *ngFor="let todo of todoItems() | filterTodos : searchTerm()" class="todos__item">
+        <input
+            id="todo-{{ todo.id }}"
+            type="checkbox"
+            [(ngModel)]="todo.completed"
+        />
+        <label
+            for="todo-{{ todo.id }}"
+            [class.todos__item--completed]="todo.completed"
+        >
+            {{ todo.title }}
+        </label>
+    </li>
+</ul>
